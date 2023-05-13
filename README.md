@@ -10,10 +10,12 @@ Open in Docker Dev Environments Open in Docker Dev Environments
 Python/Flask application using a Redis database
 Project structure:
 
+
 .
 ├── Dockerfile
 ├── README.md
 ├── app.py
 ├── compose.yaml
 └── requirements.txt
-compose.yaml
+
+ompose.yaml
