@@ -3,7 +3,7 @@ flask redis multi-tier application using docker-compose
 
 
 
-## Compose sample application
+##  flask and redis sample application using docker-compose 
 
 
 ### Python/Flask application
