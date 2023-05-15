@@ -66,7 +66,7 @@ CONTAINER ID   IMAGE                COMMAND                  CREATED         STA
 6a483dffc9b6   docker-compose_web   "flask run"              7 seconds ago   Up 5 seconds   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   docker-compose_web_1
 ```
 
-After the application starts, navigate to `http://localhost:8000` in your web browser or run:
+After the application starts, navigate to `http://localhost:5000` in your web browser or run:
 ```
 curl localhost:5000
 Hello World! FROM UNNATI I have been seen 1 times.
