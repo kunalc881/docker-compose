@@ -49,29 +49,30 @@ services:
 ## Deploy with docker compose
 
 ```
-$ docker compose up -d
-[+] Building 1.1s (16/16) FINISHED
- => [internal] load build definition from Dockerfile                                                                                                                                                                                       0.0s
-    ...                                                                                                                                         0.0s
- => => naming to docker.io/library/flask_web                                                                                                                                                                                               0.0s
-[+] Running 2/2
- ⠿ Network flask_default  Created                                                                                                                                                                                                          0.0s
- ⠿ Container flask-web-1  Started
+docker-compose up -d
+Creating network "docker-compose_default" with the default driver
+Creating docker-compose_web_1   ... done
+Creating docker-compose_redis_1 ... done
+
 ```
 
 ## Expected result
 
 Listing containers must show one container running and the port mapping as below:
 ```
-$ docker compose ps
-NAME                COMMAND             SERVICE             STATUS              PORTS
-flask-web-1         "python3 app.py"    web                 running             0.0.0.0:8000->8000/tcp
+ docker ps
+CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+7b211ffdb5b5   redis:alpine         "docker-entrypoint.s…"   7 seconds ago   Up 5 seconds   6379/tcp                                    docker-compose_redis_1
+6a483dffc9b6   docker-compose_web   "flask run"              7 seconds ago   Up 5 seconds   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   docker-compose_web_1
 ```
 
 After the application starts, navigate to `http://localhost:8000` in your web browser or run:
 ```
-$ curl localhost:8000
-Hello World!
+curl localhost:5000
+Hello World! FROM UNNATI I have been seen 1 times.
+
+curl localhost:5000
+Hello World! FROM UNNATI I have been seen 2 times.
 ```
 
 Stop and remove the containers
