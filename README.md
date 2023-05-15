@@ -32,13 +32,18 @@ Project structure:
 
 [_compose.yaml_](compose.yaml)
 ```
-services: 
-  web: 
-    build:
-     context: app
-     target: builder
-    ports: 
-      - '8000:8000'
+version: "3.3"
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
+    environment:
+      FLASK_DEBUG: "true"
+  redis:
+    image: "redis:alpine"
 ```
 
 ## Deploy with docker compose
